@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPickz - Handpicked Deals Just for You</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .product-card:hover { transform: translateY(-5px); }
+        .newsletter-bg {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-sm z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-blue-600">SmartPickz</a>
+                <button class="md:hidden text-gray-600" onclick="toggleMenu()">
+                    <i class="bi bi-list text-2xl"></i>
+                </button>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="#top-picks" class="text-gray-600 hover:text-blue-600">Top Picks</a>
+                    <a href="#trending" class="text-gray-600 hover:text-blue-600">Trending Deals</a>
+                    <a href="#gadgets" class="text-gray-600 hover:text-blue-600">Must-Have Gadgets</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600">About Us</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600">Contact</a>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#" class="text-gray-600">Home</a>
+                    <a href="#top-picks" class="text-gray-600">Top Picks</a>
+                    <a href="#trending" class="text-gray-600">Trending Deals</a>
+                    <a href="#gadgets" class="text-gray-600">Must-Have Gadgets</a>
+                    <a href="#about" class="text-gray-600">About Us</a>
+                    <a href="#contact" class="text-gray-600">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 px-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Smart Shopping Starts Here</h1>
+            <p class="text-xl text-gray-600 mb-8">Discover trending products & handpicked deals in the U.S.</p>
+            <a href="#top-picks" class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Top Picks Section -->
+    <section id="top-picks" class="py-12 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">Top Picks</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Cards -->
+                <div class="product-card bg-white rounded-lg shadow-md p-6 transition duration-300">
+                    <img src="https://source.unsplash.com/random/400x300?tech" alt="Product" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold mb-2">Smart Watch Pro</h3>
+                    <p class="text-gray-600 mb-4">Latest generation smartwatch with health tracking</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xl font-bold text-blue-600">$199.99</span>
+                        <a href="#" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Buy Now</a>
+                    </div>
+                </div>
+                <!-- Repeat similar product cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Now Section -->
+    <section id="trending" class="py-12 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">Trending Now</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Trending Products -->
+                <div class="relative">
+                    <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full">Hot Deal</div>
+                    <div class="product-card bg-white rounded-lg shadow-md p-6">
+                        <img src="https://source.unsplash.com/random/400x300?gadget" alt="Trending Product" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-semibold mb-2">Wireless Earbuds</h3>
+                        <p class="text-gray-600 mb-4">Premium sound quality with noise cancellation</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-blue-600">$129.99</span>
+                            <a href="#" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar trending products -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-bg py-16 px-4 text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Never Miss a Deal!</h2>
+            <p class="mb-8">Join 1000+ shoppers getting SmartPickz weekly deals.</p>
+            <form class="max-w-md mx-auto" onsubmit="return handleSubscribe(event)">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-2 rounded-full text-gray-900" required>
+                    <button type="submit" class="bg-orange-500 text-white px-8 py-2 rounded-full hover:bg-orange-600">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-12 px-4">
+        <div class="container mx-auto text-center max-w-2xl">
+            <h2 class="text-3xl font-bold mb-8">About Us</h2>
+            <p class="text-gray-600">SmartPickz brings you the best online deals, trending products, and must-have gadgets handpicked for U.S. shoppers.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-2xl">
+            <h2 class="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+            <form class="space-y-6" onsubmit="return handleContact(event)">
+                <div>
+                    <input type="text" placeholder="Your Name" class="w-full px-4 py-2 rounded border" required>
+                </div>
+                <div>
+                    <input type="email" placeholder="Your Email" class="w-full px-4 py-2 rounded border" required>
+                </div>
+                <div>
+                    <textarea placeholder="Your Message" class="w-full px-4 py-2 rounded border h-32" required></textarea>
+                </div>
+                <div class="flex justify-between items-center">
+                    <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded hover:bg-blue-700">Send Message</button>
+                    <a href="https://wa.me/1234567890" class="flex items-center text-green-600">
+                        <i class="bi bi-whatsapp mr-2"></i>Chat with Us
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">SmartPickz</h3>
+                    <p class="text-gray-400">Handpicked Deals Just for You</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <p class="text-gray-400">support@smartpickz.com</p>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-gray-800">
+                <p>Copyright © SmartPickz 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Newsletter subscription
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            alert(`Thanks for subscribing with ${email}! You'll receive our best deals soon.`);
+            event.target.reset();
+        }
+
+        // Contact form
+        function handleContact(event) {
+            event.preventDefault();
+            alert('Thanks for your message! We\'ll get back to you soon.');
+            event.target.reset();
+        }
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
